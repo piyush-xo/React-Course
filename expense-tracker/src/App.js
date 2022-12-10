@@ -26,10 +26,14 @@ function App() {
       date: new Date(2021, 5, 12),
     },
   ];
+
+  const addExpenseHandler = (expense) => {
+    console.log("In app: ",expense);
+  }
   
   return (
     <div className="App">
-      <NewExpense/>
+      <NewExpense onAddExpense = {addExpenseHandler} />
       <Expenses expenses={expenses}></Expenses>
       <br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br>
       <img src={logo} className="App-logo" alt="logo" />
