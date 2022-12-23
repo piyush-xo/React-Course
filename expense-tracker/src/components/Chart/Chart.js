@@ -1,6 +1,6 @@
 import React from 'react';
 import './Chart.css'
-import ChartBar from './ChartBAr'
+import ChartBar from './ChartBar.js'
 
 const Chart = (props) => {
     const dataPointValues = props.dataPoint.map(dataPoint => dataPoint.value);
