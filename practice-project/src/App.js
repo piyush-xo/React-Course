@@ -1,10 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
-import AddUser from './components/users/AddUser';
+import React, { useState } from "react";
+import AddUser from "./components/users/AddUser";
+import UsersList from "./components/users/UsersList";
 
 function App() {
+  const [usersList, setUsersList] = useState([]);
+
+  const addUserHandler = (enteredUsername, enteredAge) => {
+    // console.log('App', username, age)
+    setUsersList((prevUsersList) => {
+      return [...prevUsersList, { name: enteredUsername, age: enteredAge, id: Math.random().toString() }];
+    });
+  };
+
   return (
-    <AddUser></AddUser>
+    <div>
+      <AddUser onAddUser={addUserHandler}></AddUser>
+      <UsersList users={usersList}></UsersList>
+    </div>
   );
 }
 
