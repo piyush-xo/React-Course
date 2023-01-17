@@ -22,8 +22,8 @@ const AddUser = (props) => {
 
   const addUserHandler = (event) => {
     event.preventDefault();
-    const enteredUsername=usernameInputeRef.current.value;
-    const enteredAge=ageInputeRef.current.value;
+    const enteredUsername = usernameInputeRef.current.value;
+    const enteredAge = ageInputeRef.current.value;
     if (enteredUsername.trim().length === 0 || enteredAge.trim().length === 0) {
       setError({
         title: "Invalid Input",
@@ -42,8 +42,8 @@ const AddUser = (props) => {
     props.onAddUser(enteredUsername, enteredAge);
     // setEnteredAge("");
     // setEnteredUsername("");
-    usernameInputeRef.current.value='';
-    ageInputeRef.current.value='';
+    usernameInputeRef.current.value = "";
+    ageInputeRef.current.value = "";
   };
 
   const errorHandler = () => {
@@ -52,7 +52,13 @@ const AddUser = (props) => {
 
   return (
     <Wrapper>
-      {error && <ErrorModal title={error.title} message={error.message} onConfirm={errorHandler} />}
+      {error && (
+        <ErrorModal
+          title={error.title}
+          message={error.message}
+          onConfirm={errorHandler}
+        />
+      )}
       <Card className={styles.input}>
         <form onSubmit={addUserHandler}>
           <label htmlFor="username">Userame</label>
