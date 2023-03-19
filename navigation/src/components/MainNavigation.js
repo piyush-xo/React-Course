@@ -12,6 +12,9 @@ function MainNavigation() {
           <li>
             <Link to="/products">Products</Link>
           </li>
+          <li>
+            <Link to="/abc">Error</Link>
+          </li>
         </ul>
       </nav>
     </header>
