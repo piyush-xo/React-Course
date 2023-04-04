@@ -1,10 +1,17 @@
-import { useNavigate, Form, useNavigation } from "react-router-dom";
+import {
+  useNavigate,
+  Form,
+  useNavigation,
+  useActionData,
+} from "react-router-dom";
 
 import classes from "./EventForm.module.css";
 
 function EventForm({ method, event }) {
   const navigate = useNavigate();
   const navigaiton = useNavigation();
+  const actionData = useActionData();
+  console.log("p",actionData);
 
   const isSubmitting = navigaiton.state === "submitting";
 
@@ -16,6 +23,13 @@ function EventForm({ method, event }) {
     //special Form tag from router, which sends form data to your action
     // unlike the default browser action of sending form data to backend
     <Form method="POST" className={classes.form}>
+      {actionData && actionData.errors && (
+        <ul>
+          {Object.values(actionData.errors).map((errorValues) => (
+            <li key={errorValues}>{errorValues}</li>
+          ))}
+        </ul>
+      )}
       <p>
         <label htmlFor="title">Title</label>
         <input
