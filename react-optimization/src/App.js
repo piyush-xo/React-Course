@@ -5,6 +5,8 @@ import Button from "./components/UI/Button/Button";
 import Demo from "./components/Demo/Demo";
 
 function App() {
+  //new state is only initialized when the component is rendered the first time
+  //Comp mounted: state init, Comp unmounted: state destroyed
   const [showParagraph, setshowParagraph] = useState(false);
   const [toggle, setToggle] = useState(false);
   console.log("App rendered");
