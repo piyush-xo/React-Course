@@ -1,39 +1,41 @@
 // import { createStore } from "redux";
-import { createSlice, configureStore } from "@reduxjs/toolkit";
+import { configureStore } from "@reduxjs/toolkit";
+import counterSlice from "./counter-slice";
+import authSlice from "./auth-slice";
 
-const initialCounterState = { counter: 0, showCounter: true };
+// const initialCounterState = { counter: 0, showCounter: true };
 
-const counterSlice = createSlice({
-  name: "counter",
-  initialState: initialCounterState,
-  reducers: {
-    increment(state) {
-      state.counter++;
-    },
-    decrement(state) {
-      state.counter--;
-    },
-    increase(state, action) {
-      state.counter += action.payload;
-    },
-    toggleCounter(state) {
-      state.showCounter = !state.showCounter;
-    },
-  },
-});
+// const counterSlice = createSlice({
+//   name: "counter",
+//   initialState: initialCounterState,
+//   reducers: {
+//     increment(state) {
+//       state.counter++;
+//     },
+//     decrement(state) {
+//       state.counter--;
+//     },
+//     increase(state, action) {
+//       state.counter += action.payload;
+//     },
+//     toggleCounter(state) {
+//       state.showCounter = !state.showCounter;
+//     },
+//   },
+// });
 
-const authSlice = createSlice({
-  name: "auth",
-  initialState: { authStatus: false },
-  reducers: {
-    login(state) {
-      state.authStatus = true;
-    },
-    logout(state) {
-      state.authStatus = false;
-    },
-  },
-});
+// const authSlice = createSlice({
+//   name: "auth",
+//   initialState: { authStatus: false },
+//   reducers: {
+//     login(state) {
+//       state.authStatus = true;
+//     },
+//     logout(state) {
+//       state.authStatus = false;
+//     },
+//   },
+// });
 
 // const counterReducer = (state = initialState, action) => {
 //   if (action.type === "increment") {
@@ -52,6 +54,7 @@ const authSlice = createSlice({
 // };
 
 // const store = createStore(counterReducer);
+
 const store = configureStore({
   reducer: { counterSlice: counterSlice.reducer, authSlice: authSlice.reducer },
 });
