@@ -12,7 +12,7 @@ function App() {
   console.log("App rendered");
 
   //callback saves the function somewhere in react's internal storage
-  //and we will always reuse taht same function object whenever the component re-executes
+  //and we will always reuse that same function object whenever the component re-executes
   const handleButton = useCallback(() => {
     if (toggle) {
       setshowParagraph((preShowParagraph) => !preShowParagraph);
