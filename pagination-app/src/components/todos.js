@@ -46,7 +46,12 @@ const Todos = () => {
             </p>
           ))}
         </div>
-        <PageNavigation pages={pages} currentPage={currentPage} noOfPages={noOfPages} setCurrentPage={setCurrentPage}/>
+        <PageNavigation {...{pages, currentPage, noOfPages, setCurrentPage}}
+          // pages={pages}
+          // currentPage={currentPage}
+          // noOfPages={noOfPages}
+          // setCurrentPage={setCurrentPage}
+        />
       </div>
     </div>
   );
