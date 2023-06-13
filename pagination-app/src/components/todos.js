@@ -1,9 +1,12 @@
-import { useEffect, useState } from "react";
-import axios from "axios";
 import PageNavigation from "./pageNavigation";
+import todos from "./todosD.js"
+import { useState } from "react";
+import { useSelector } from "react-redux";
 
 const Todos = () => {
-  const [todos, setTodos] = useState([]);
+  const todos = useSelector((store) => store.todolist);
+  console.log("TODOS", todos);
+
   const [currentPage, setCurrentPage] = useState(1);
   const [todosPerPage, setTodosPerPage] = useState(15);
 
@@ -13,12 +16,6 @@ const Todos = () => {
   const indexOfFirstTodo = indexOfLastTodo - todosPerPage;
   console.log(todosPerPage, indexOfFirstTodo, indexOfLastTodo);
   const visibleTodos = todos.slice(indexOfFirstTodo, indexOfLastTodo);
-
-  useEffect(() => {
-    axios
-      .get("https://jsonplaceholder.typicode.com/todos")
-      .then((res) => setTodos(res.data));
-  }, []);
 
   return (
     <div className="App">
