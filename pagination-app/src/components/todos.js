@@ -1,21 +1,27 @@
 import PageNavigation from "./pageNavigation";
 import { useState } from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { todosActions } from "../store/store";
 
 const Todos = () => {
   const todos = useSelector((store) => store.todolist);
   console.log("TODOS", todos);
+  const dispatch = useDispatch();
 
   const [currentPage, setCurrentPage] = useState(1);
   const [todosPerPage, setTodosPerPage] = useState(15);
 
-  const noOfPages = Math.ceil(todos.length / todosPerPage); //10
+  const noOfPages = Math.ceil(todos.length / todosPerPage);
   const pages = [...Array(noOfPages + 1).keys()].slice(1);
   const indexOfLastTodo = todosPerPage * currentPage;
   const indexOfFirstTodo = indexOfLastTodo - todosPerPage;
   console.log(todosPerPage, indexOfFirstTodo, indexOfLastTodo);
   const visibleTodos = todos.slice(indexOfFirstTodo, indexOfLastTodo);
 
+  const todoClickHandler = (id) => {
+    console.log(id);
+    dispatch(todosActions.toggleProgress(id));
+  }
   return (
     <div className="App">
       <div className="App-header">TODO - LIST</div>
@@ -37,6 +43,7 @@ const Todos = () => {
             <p
               key={todo.id}
               className={todo.completed === true ? "completed" : "notCompleted"}
+              onClick={() => todoClickHandler(todo.id)}
             >
               {todo.id}. {todo.title}
             </p>

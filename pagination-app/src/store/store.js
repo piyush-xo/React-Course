@@ -1,4 +1,4 @@
-import { configureStore, createSlice } from "@reduxjs/toolkit";
+import { configureStore, createSlice, current } from "@reduxjs/toolkit";
 import axios from "axios";
 
 let todos = [];
@@ -13,14 +13,18 @@ const todosSlice = createSlice({
   name: "todos",
   initialState: initialTodos,
   reducers: {
-    setCompleted(state, action) {
-      console.log("setCompleted");
-    },
-    setUncompleted(state, action) {
-      console.log("setUncompleted");
-    },
+    toggleProgress(state, action) {
+      state.todolist = state.todolist.map((todo) => {
+        if(todo.id===action.payload){
+            return {...todo, completed: !todo.completed};
+        }
+        return todo;
+      })
+    }
   },
 });
 
 const store = configureStore({ reducer: todosSlice.reducer});
+
+export const todosActions = todosSlice.actions;
 export default store;
