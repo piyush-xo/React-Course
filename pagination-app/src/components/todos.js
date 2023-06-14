@@ -9,7 +9,7 @@ const Todos = () => {
   const dispatch = useDispatch();
 
   const [currentPage, setCurrentPage] = useState(1);
-  const [todosPerPage, setTodosPerPage] = useState(15);
+  const [todosPerPage, setTodosPerPage] = useState(20);
 
   const noOfPages = Math.ceil(todos.length / todosPerPage);
   const pages = [...Array(noOfPages + 1).keys()].slice(1);
@@ -21,23 +21,28 @@ const Todos = () => {
   const todoClickHandler = (id) => {
     console.log(id);
     dispatch(todosActions.toggleProgress(id));
-  }
+  };
   return (
     <div className="App">
       <div className="App-header">TODO - LIST</div>
       <div className="Todo-list">
-        <select
-          style={{ margin: "1rem" }}
-          onChange={(e) => {
-            setCurrentPage(1);
-            setTodosPerPage(e.target.value);
-          }}
-        >
-          <option value="15">15</option>
-          <option value="20">20</option>
-          <option value="30">30</option>
-          <option value="50">50</option>
-        </select>
+        <label>
+          Pick the number of Todos you want in one page:
+          <select
+            style={{ margin: "1rem" }}
+            onChange={(e) => {
+              setCurrentPage(1);
+              setTodosPerPage(e.target.value);
+            }}
+            defaultValue="20"
+          >
+            <option value="15">15</option>
+            <option value="20">20</option>
+            <option value="30">30</option>
+            <option value="50">50</option>
+          </select>
+        </label>
+        <hr />
         <div>
           {visibleTodos.map((todo) => (
             <p
@@ -49,7 +54,8 @@ const Todos = () => {
             </p>
           ))}
         </div>
-        <PageNavigation {...{pages, currentPage, noOfPages, setCurrentPage}}
+        <PageNavigation
+          {...{ pages, currentPage, noOfPages, setCurrentPage }}
           // pages={pages}
           // currentPage={currentPage}
           // noOfPages={noOfPages}
