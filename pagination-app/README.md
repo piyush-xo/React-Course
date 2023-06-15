@@ -1,6 +1,4 @@
-# Getting Started with Create React App
-
-TODO Application (React, Redux)
+# TODO Application (React, Redux)
 
 ## Available features
 
