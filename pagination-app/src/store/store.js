@@ -1,4 +1,4 @@
-import { configureStore, createSlice, current } from "@reduxjs/toolkit";
+import { configureStore, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 
 let todos = [];
