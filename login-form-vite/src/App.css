@@ -1,0 +1,114 @@
+.container {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card {
+  background-color: rgb(213, 213, 213);
+  width: 280px;
+  height: 360px;
+  border-radius: 5px;
+  border: 2px solid black;
+  box-shadow: 4px 4px 4px black;
+  transition-duration: 200ms;
+  display: flex;
+  flex-direction: column;
+  padding: 15px;
+}
+
+.card:hover {
+  background-color: rgb(223, 223, 223);
+}
+
+h1 {
+  font-family: "DM Serif Display";
+  font-size: 2.5rem;
+  text-align: center;
+  margin-top: 65px;
+  margin-bottom: 15px;
+  text-decoration: underline;
+}
+
+.input {
+  font-family: "Quattrocento";
+  padding: 10px;
+  font-size: 1rem;
+  margin-top: 15px;
+  border-radius: 5px;
+  border: 2px solid black;
+  box-shadow: 4px 4px 4px black;
+  background-color: rgb(233, 233, 233);
+  transition-duration: 200ms;
+  width: 255px;
+}
+
+.input:focus {
+  outline: none;
+  transform: scale(1.015);
+}
+
+span {
+  margin-top: 10px;
+}
+
+button {
+  font-family: "DM Serif Display";
+  padding: 4px 20px;
+  font-size: 1.1rem;
+  border-radius: 5px;
+  border: 2px solid black;
+  box-shadow: 4px 4px 4px black;
+  background-color: rgb(233, 233, 233);
+  margin-left: 10px;
+  float: right;
+  transition-duration: 200ms;
+  cursor: pointer;
+}
+
+button:active {
+  transform: scale(0.9);
+}
+
+button:focus {
+  outline: none;
+}
+
+.eye {
+  position:absolute;
+  right: 3.5%;
+  top: 45%;
+  width: 20px;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.eyeSlash {
+  position:absolute;
+  right: 3.2%;
+  top: 45%;
+  width: 22px;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.passwordStrength {
+  font-family: "Quattrocento";
+  font-size: 0.85rem;
+  margin: 7px 0 5px 0;
+  padding: 0px 10px;
+  display: flex;
+  /* align-items: center; */
+}
+
+.circle {
+  margin: 0px;
+  margin-left: 3px;
+  margin-top: 0.5px;
+  height: 10px;
+  width: 10px;
+  border-radius: 50%;
+  border: 1px solid black;
+  box-shadow: 1px 1px black;
+}
