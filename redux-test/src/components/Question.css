@@ -1,0 +1,65 @@
+h1 {
+  font-size: 2.5rem;
+  text-align: center;
+  margin-top: 70px;
+  margin-bottom: 15px;
+  font-weight: 900;
+  border-radius: 5px;
+  color: #1a1a1a;
+  border: 1px solid blueviolet;
+  box-shadow: 4px 4px blueviolet;
+  background-color: white;
+  padding: 0px 10px;
+}
+
+.input,label {
+  padding: 10px;
+  font-size: 1.1rem;
+  font-weight: 500;
+  margin-top: 12px;
+  border-radius: 5px;
+  border: 1px solid blueviolet;
+  box-shadow: 4px 4px blueviolet;
+  background-color: rgb(233, 233, 233);
+  transition-duration: 200ms;
+  width: 255px;
+  color: #1a1a1a;
+  text-align: center;
+}
+
+.input:focus {
+  outline: none;
+  transform: scale(1.015);
+}
+
+span {
+  margin-top: 20px;
+  margin-bottom: 55px;
+  width: 275px;
+  display: flex;
+  justify-content: space-between;
+}
+
+button {
+  padding: 5px 20px;
+  font-size: 1.1rem;
+  border-radius: 5px;
+  border: 1px solid blueviolet;
+  text-decoration: underline;
+  box-shadow: 4px 4px blueviolet;
+  background-color: rgb(233, 233, 233);
+  margin-left: 0px !important;
+  float: none;
+  transition-duration: 200ms;
+  cursor: pointer;
+  font-weight: 700;
+  color: #1a1a1a;
+}
+
+button:active {
+  transform: scale(0.9);
+}
+
+button:focus {
+  outline: none;
+}
