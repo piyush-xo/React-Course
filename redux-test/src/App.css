@@ -4,3 +4,25 @@
     flex-direction: column;
     align-items: center;
 }
+
+
+@media screen and ( max-width:1256px ) {
+    .AppContainer{
+        margin: 150px;
+    }
+}
+@media screen and ( max-width:1000px ) {
+    .AppContainer{
+        margin: 70px;
+    }
+}
+@media screen and ( max-width:650px ) {
+    .AppContainer{
+        margin: 50px;
+    }
+}
+@media screen and ( max-width:480px ) {
+    .AppContainer{
+        margin: 10px;
+    }
+}

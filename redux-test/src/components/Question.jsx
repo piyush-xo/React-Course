@@ -1,8 +1,13 @@
 import React, { useEffect } from "react";
 import Card from "./ui/Card";
 import "./Question.css";
+import { useDispatch, useSelector } from "react-redux";
+import { answerActions } from "./store";
 
 function Login() {
+  const isCorrect = useSelector((state) => state.answerSlice.answerStatus);
+  const dispatch = useDispatch();
+
   const [answer, setAnswer] = React.useState("");
   const [hint, setHint] = React.useState(false);
 
@@ -10,15 +15,21 @@ function Login() {
     if (hint) {
       const timer = setTimeout(() => {
         setHint(false);
-      }, 5000);
+      }, 3000);
       return () => {
         clearTimeout(timer);
       };
     }
   }, [hint]);
-  
+
   const handleSubmit = () => {
     console.log("Submit");
+    if (answer.toLowerCase() === "raju mahajan") {
+      dispatch(answerActions.correctAnswer());
+      return;
+    }
+    setAnswer("");
+    setHint(true);
   };
 
   const handleHint = () => {
@@ -27,7 +38,7 @@ function Login() {
 
   return (
     <Card>
-      {false ? (
+      {isCorrect ? (
         <h1 style={{ marginTop: "10px" }}>Brown Rang</h1>
       ) : (
         <>
@@ -36,7 +47,7 @@ function Login() {
           <input
             className="input"
             type="text"
-            placeholder={hint ? "He is Politician 😎" : "Answer me peasant 🤬"}
+            placeholder={hint ? "He is a Politics 😎" : "Answer me peasant 🤬"}
             value={answer}
             onChange={(e) => setAnswer(e.target.value)}
           ></input>

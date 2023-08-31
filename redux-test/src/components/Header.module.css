@@ -5,10 +5,25 @@
   border-radius: 50px;
   display: flex;
   align-items: center;
-  font-size: 40px;
+  font-size: 55px;
   font-weight: 900;
   padding: 5px 30px;
   color: blueviolet;
   box-shadow: 0 2px 5px #363636;
-  text-decoration: underline;
+}
+
+.plum:hover {
+  cursor: grab;
+}
+
+.plum:active {
+  transform: scale(0.9);
+}
+
+.plum:hover + div {
+  display: block;
+}
+
+.plum + div {
+  display: none;
 }
