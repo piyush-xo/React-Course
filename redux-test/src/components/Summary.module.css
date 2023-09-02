@@ -5,3 +5,9 @@
     width: 80%;
     text-align: center;
 }
+
+.image_container {
+    width: 100%;
+    height: auto;
+    margin-top: 20px;
+}

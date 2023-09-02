@@ -33,7 +33,8 @@ function Login() {
   };
 
   const handleHint = () => {
-    setHint((prev) => !prev);
+    setAnswer("");
+    setHint(true);
   };
 
   return (
